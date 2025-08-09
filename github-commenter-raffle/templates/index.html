@@ -19,6 +19,11 @@
                 <p id="winner-name"></p>
                 <img id="winner-image" src="" alt="Winner" class="hidden">
             </div>
+            <form action="{{ url_for('raffle') }}" method="post">
+              <input type="text" name="repository" placeholder="owner/repo" required>
+              <input type="text" name="issue_number" placeholder="Issue Number" required>
+              <button type="submit" class="btn btn-primary">Select Winner</button>
+            </form>
         </main>
         <footer>
             <p>Powered by GitHub API and Flask</p>

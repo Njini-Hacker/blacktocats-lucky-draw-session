@@ -8,13 +8,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Raffle Results</h1>
-        <div id="winner-announcement">
-            <h2>Congratulations!</h2>
-            <p>The winner of the Mona plushie is:</p>
-            <h3 id="winner-name">{{ winner_name }}</h3>
+        <div id="winner-section" style="text-align:center; margin-top:2em;">
+            <h1>🎉 Winner Announcement! 🎉</h1>
+            <h2 id="winner-name" style="font-size:2.5em; color:#2c3e50;">{{ winner }}</h2>
+            <p>Congratulations, <strong>{{ winner }}</strong>! You have won the raffle!</p>
+            <canvas id="confetti-canvas"></canvas>
         </div>
-        <button onclick="window.location.href='/'">Back to Raffle</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Back</a>
     </div>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>

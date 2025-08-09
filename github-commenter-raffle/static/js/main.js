@@ -32,4 +32,29 @@ document.addEventListener('DOMContentLoaded', () => {
             resultContainer.classList.remove('animate');
         }, 3000);
     }
+
+    function launchConfetti() {
+        // Simple confetti using canvas-confetti CDN
+        if (window.confetti) {
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+    }
+
+    window.onload = function() {
+        if (document.getElementById('winner-section')) {
+            // Load confetti script if not already loaded
+            if (!window.confetti) {
+                var script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+                script.onload = launchConfetti;
+                document.body.appendChild(script);
+            } else {
+                launchConfetti();
+            }
+        }
+    };
 });
